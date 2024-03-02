@@ -1,0 +1,31 @@
+/* src/components/Tables.css */
+.tables-container {
+    max-width: 1200px; /* Set a max-width to control the overall width of the tables */
+    margin: 0 auto; /* Center the tables horizontally */
+  }
+  
+  .custom-table {
+    border-radius: 15px; /* Add border-radius for rounded corners */
+  }
+  
+  .industry-row {
+    background-color: #d4edda; /* Light green background for selected industries */
+  }
+  
+  .area-row {
+    background-color: #d4edda; /* Light green background for selected areas */
+  }
+  
+/* src/components/Tables.css */
+.custom-table {
+    border-radius: 10px; /* Adjust the value as needed */
+  }
+  
+  .tables-container {
+    border-radius: 25px;
+    overflow: hidden; /* Prevents rounded corners from clipping inner content */
+  }
+  .custom-table {
+    border-radius: 50px; /* You can adjust this value */
+  }
+  
