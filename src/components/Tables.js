@@ -22,7 +22,7 @@ const Tables = ({ postcode }) => {
         console.error(error);
       });
 
-    axios.get('http://localhost:3001/areas')
+    axios.get('https://postcodebe.onrender.com/areas')
       .then((response) => {
         setAllAreas(response.data);
       })
