@@ -1,26 +1,24 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import './Dropdown.css';
 
 const Dropdown = ({ onSelect }) => {
-  const [postcodes, setPostcodes] = useState([]);
   const [selectedPostcode, setSelectedPostcode] = useState('');
-
-  // Debouncing input changes
   const [debouncedInput, setDebouncedInput] = useState('');
+  const [postcodes, setPostcodes] = useState([]);
 
   useEffect(() => {
     const delay = setTimeout(() => {
       onSelect(debouncedInput);
-    }, 300); // Adjust the delay as needed
+    }, 300);
 
     return () => clearTimeout(delay);
   }, [debouncedInput, onSelect]);
 
   useEffect(() => {
     // Fetch all postcodes
-    axios.get('https://postcodebe.onrender.com/postcodes')
+    axios.get('http://localhost:3001/postcodes')
       .then((response) => {
         setPostcodes(response.data);
       })
@@ -30,25 +28,26 @@ const Dropdown = ({ onSelect }) => {
   }, []);
 
   const handlePostcodeChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedPostcode(selectedValue);
-    setDebouncedInput(selectedValue);
+    const input = event.target.value;
+    if (input.length <= 4) {
+      setSelectedPostcode(input);
+      setDebouncedInput(input);
+    }
   };
-
-  const memoizedPostcodes = useMemo(() => postcodes, [postcodes]);
 
   return (
     <Form>
       <Form.Group controlId="postcodeDropdown" className="custom-dropdown">
-        <Form.Label>Select Postcode:</Form.Label>
-        <Form.Control as="select" value={selectedPostcode} onChange={handlePostcodeChange}>
-          <option value="">-- Select Postcode --</option>
-          {memoizedPostcodes.map((postcode) => (
-            <option key={postcode.postCode} value={postcode.postCode}>
-              {postcode.postCode}
-            </option>
-          ))}
-        </Form.Control>
+        <Form.Label className="label">Select Postcode:</Form.Label>
+        <div className="autocomplete">
+          <input
+            type="text"
+            value={selectedPostcode}
+            onChange={handlePostcodeChange}
+            placeholder="Type the Post Code"
+            className="search-box"
+          />
+        </div>
       </Form.Group>
     </Form>
   );
