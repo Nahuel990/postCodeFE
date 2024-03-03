@@ -14,7 +14,7 @@ const Tables = ({ postcode }) => {
 
   useEffect(() => {
     // Fetch all industries and areas
-    axios.get('http://localhost:3001/industries')
+    axios.get('https://postcodebe.onrender.com/industries')
       .then((response) => {
         setAllIndustries(response.data);
       })
@@ -32,7 +32,7 @@ const Tables = ({ postcode }) => {
 
     // Fetch industries and areas based on the selected postcode
     if (postcode) {
-      axios.get(`http://localhost:3001/postcode/${postcode}`)
+      axios.get(`https://postcodebe.onrender.com/postcode/${postcode}`)
         .then((response) => {
           const { industries, areas, stateName } = response.data;
           setSelectedIndustries(industries);
