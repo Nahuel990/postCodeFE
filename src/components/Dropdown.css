@@ -1,8 +1,32 @@
-    /* src/components/Dropdown.css */
+/* Dropdown.css */
 
 .custom-dropdown {
-    margin-top: 20px; /* Adjust the top margin as needed */
-  }
-  
-  /* Add more styles if necessary */
-  
+  width: 300px; /* Adjust the width as needed */
+  margin: auto;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center; /* Center the text */
+}
+
+.suggestions {
+  display: none;
+}
