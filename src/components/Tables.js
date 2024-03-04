@@ -120,8 +120,6 @@ const Tables = ({ postcode }) => {
         <>
           <Row className="mt-4">
             <Col>
-              <h5>State:</h5>
-              <p>{stateName}</p>
             </Col>
           </Row>
           <Row className="mt-4">
@@ -133,13 +131,6 @@ const Tables = ({ postcode }) => {
                       <th>Industries</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    {allIndustries.map((industry, index) => (
-                      <tr key={index} className="industry-row">
-                        <td>{industry.IndustryName}</td>
-                      </tr>
-                    ))}
-                  </tbody>
                 </Table>
               ) : (
                 <Alert variant="info">No industries available.</Alert>
