@@ -144,13 +144,6 @@ const Tables = ({ postcode }) => {
                       <th>Areas</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    {allAreas.map((area, index) => (
-                      <tr key={index} className="area-row">
-                        <td>{area.areaType}</td>
-                      </tr>
-                    ))}
-                  </tbody>
                 </Table>
               ) : (
                 <Alert variant="info">No areas available.</Alert>
