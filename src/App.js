@@ -15,7 +15,10 @@ function App() {
   return (
     <div className="App">
       <Helmet>
+      <meta name="google-adsense-account" content="ca-pub-5224579032579834">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5224579032579834"
+     crossorigin="anonymous"></script>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5224579032579834"
      crossorigin="anonymous"></script>
         <title>Postcode Validator</title>
       </Helmet>
