@@ -8,6 +8,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <Helmet>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5224579032579834"
+     crossorigin="anonymous"></script>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5224579032579834"
+     crossorigin="anonymous"></script>
+        <title>Postcode Validator</title>
+      </Helmet>
   </React.StrictMode>
 );
 
