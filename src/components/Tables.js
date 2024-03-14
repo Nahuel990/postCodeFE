@@ -74,7 +74,7 @@ const Tables = ({ postcode }) => {
                     {selectedIndustries.map((industry, index) => (
                       console.log(industry),
                       <tr key={index} className={'table-success'}>
-                          <td onClick={industry === 'Tourism and Hospitality' ? handleHospitalityClick : null} className="industry-details">
+                          <td onClick={industry === 'Tourism and Hospitality' ? handleHospitalityClick : null}>
                             {industry}
                             {industry === 'Tourism and Hospitality' && showHospitalityDetails && (
                               <>
