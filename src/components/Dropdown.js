@@ -18,7 +18,7 @@ const Dropdown = ({ onSelect }) => {
 
   useEffect(() => {
     // Fetch all postcodes
-    axios.get('https://postcodebe.onrender.com/postcodes')
+    axios.get('http://localhost:3001/postcodes')
       .then((response) => {
         setPostcodes(response.data);
       })

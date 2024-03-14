@@ -14,7 +14,7 @@ const Tables = ({ postcode }) => {
 
   useEffect(() => {
     // Fetch all industries and areas
-    axios.get('https://postcodebe.onrender.com/industries')
+    axios.get('http://localhost:3001/industries')
       .then((response) => {
         setAllIndustries(response.data);
       })
@@ -22,7 +22,7 @@ const Tables = ({ postcode }) => {
         console.error(error);
       });
 
-    axios.get('https://postcodebe.onrender.com/areas')
+    axios.get('http://localhost:3001/areas')
       .then((response) => {
         setAllAreas(response.data);
       })
@@ -32,7 +32,7 @@ const Tables = ({ postcode }) => {
 
     // Fetch industries and areas based on the selected postcode
     if (postcode) {
-      axios.get(`https://postcodebe.onrender.com/postcode/${postcode}`)
+      axios.get(`http://localhost:3001/postcode/${postcode}`)
         .then((response) => {
           const { industries, areas, stateName } = response.data;
           setSelectedIndustries(industries);
@@ -71,21 +71,22 @@ const Tables = ({ postcode }) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {allIndustries.map((industry, index) => (
-                      <tr key={index} className={`industry-row ${isIndustrySelected(industry.IndustryName) ? 'table-success' : 'table-danger'}`}>
-                        <td onClick={industry.IndustryName === 'Tourism and Hospitality' ? handleHospitalityClick : null}>
-                          {industry.IndustryName}
-                          {industry.IndustryName === 'Tourism and Hospitality' && showHospitalityDetails && (
-                            <ul>
-                              <li>Tourist guides and operators</li>
-                              <li>Outdoor adventure or activity instructors</li>
-                              <li>Tourist transport services</li>
-                              <li>Gallery or museum managers, curators or guides</li>
-                              <li>Hospitality workers, such as in hotels or other accommodation facilities, restaurants, cafes, bars and casinos</li>
-                              <li>Conference and event organisers</li>
-                            </ul>
-                          )}
-                        </td>
+                    {selectedIndustries.map((industry, index) => (
+                      console.log(industry),
+                      <tr key={index} className={'table-success'}>
+                          <td onClick={industry === 'Tourism and Hospitality' ? handleHospitalityClick : null} className="industry-details">
+                            {industry}
+                            {industry === 'Tourism and Hospitality' && showHospitalityDetails && (
+                              <>
+                                <div>Tourist guides and operators</div>
+                                <div>Outdoor adventure or activity instructors</div>
+                                <div>Tourist transport services</div>
+                                <div>Gallery or museum managers, curators or guides</div>
+                                <div>Hospitality workers, such as in hotels or other accommodation facilities, restaurants, cafes, bars and casinos</div>
+                                <div>Conference and event organisers</div>
+                              </>
+                            )}
+                          </td>
                       </tr>
                     ))}
                   </tbody>
@@ -103,9 +104,9 @@ const Tables = ({ postcode }) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {allAreas.map((area, index) => (
-                      <tr key={index} className={`area-row ${isAreaSelected(area.areaType) ? 'table-success' : 'table-danger'}`}>
-                        <td>{area.areaType}</td>
+                    {selectedAreas.map((area, index) => (
+                      <tr key={index} className="table-success">
+                        <td>{area}</td>
                       </tr>
                     ))}
                   </tbody>

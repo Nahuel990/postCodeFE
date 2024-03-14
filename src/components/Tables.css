@@ -28,4 +28,12 @@
   .custom-table {
     border-radius: 50px; /* You can adjust this value */
   }
+  .industry-details {
+    font-size: smaller;
+    padding: 5px;
+  }
+  
+  .industry-details div {
+    margin-bottom: 3px;
+  }
   
